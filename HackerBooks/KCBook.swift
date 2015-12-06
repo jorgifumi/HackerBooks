@@ -12,15 +12,15 @@ class KCBook {
     
     //MARK - Properties
     let title   : String
-    let authors : [String]
-    let tags    : [String]
+    let authors : [String]?
+    let tags    : [String]?
     let image   : NSURL
     let pdf     : NSURL
     
     //Mark - Init
     init(title: String,
-        authors: [String],
-        tags: [String],
+        authors: [String]?,
+        tags: [String]?,
         imageUrl: NSURL,
         pdfUrl: NSURL){
             

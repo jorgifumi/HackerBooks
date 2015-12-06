@@ -13,6 +13,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    //Detectar si es la primera vez que arrancamos o no. Si es la primera vez descargar el JSON y si no cargarlo de la SandBox
+    
+    //Una vez localizados los datos, crear el modelo
+    
+    //Arrancar la app
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
