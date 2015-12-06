@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		688CCD4C1C149BB60033F484 /* JSONProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688CCD4B1C149BB60033F484 /* JSONProcessing.swift */; };
 		689105071C00AF1E00F8A22F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689105061C00AF1E00F8A22F /* AppDelegate.swift */; };
 		689105091C00AF1E00F8A22F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689105081C00AF1E00F8A22F /* ViewController.swift */; };
 		6891050C1C00AF1E00F8A22F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6891050A1C00AF1E00F8A22F /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		688CCD4B1C149BB60033F484 /* JSONProcessing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONProcessing.swift; sourceTree = "<group>"; };
 		689105031C00AF1E00F8A22F /* HackerBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		689105061C00AF1E00F8A22F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		689105081C00AF1E00F8A22F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			children = (
 				689105271C00AF9800F8A22F /* KCBook.swift */,
 				689105291C00B23B00F8A22F /* KCLibrary.swift */,
+				688CCD4B1C149BB60033F484 /* JSONProcessing.swift */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				6891052A1C00B23B00F8A22F /* KCLibrary.swift in Sources */,
 				689105071C00AF1E00F8A22F /* AppDelegate.swift in Sources */,
 				689105281C00AF9800F8A22F /* KCBook.swift in Sources */,
+				688CCD4C1C149BB60033F484 /* JSONProcessing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +406,7 @@
 				689105221C00AF1E00F8A22F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		689105231C00AF1E00F8A22F /* Build configuration list for PBXNativeTarget "HackerBooksTests" */ = {
 			isa = XCConfigurationList;
@@ -410,6 +415,7 @@
 				689105251C00AF1E00F8A22F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
