@@ -8,19 +8,24 @@
 
 import Foundation
 
-class KCBook {
+class KCBook : Equatable, Hashable {
     
     //MARK - Properties
-    let title   : String
-    let authors : [String]?
-    let tags    : [String]?
-    let image   : NSURL
-    let pdf     : NSURL
+    let title       : String
+    let authors     : [String]?
+    let tags        : [KCBookTag]
+    let image       : NSURL
+    let pdf         : NSURL
+    var isFavorite  : Bool{
+        get{
+            return tags.contains(KCBookTag.favoriteBookTag())
+        }
+    }
     
     //Mark - Init
     init(title: String,
         authors: [String]?,
-        tags: [String]?,
+        tags: [KCBookTag],
         imageUrl: NSURL,
         pdfUrl: NSURL){
             
@@ -30,4 +35,32 @@ class KCBook {
             self.image = imageUrl
             self.pdf = pdfUrl
     }
+    
+    //MARK: - Proxies
+    var proxyForComparison : String{
+        
+        get{
+            return "\(title)\(authors)\(tags)\(image)\(pdf)"
+        }
+    }
+
+}
+
+//MARK: - Operators
+
+func ==(lhs: KCBook, rhs: KCBook) -> Bool{
+    
+    // 1er caso: son el mismo objeto
+    guard !(lhs === rhs) else{
+        return true
+    }
+    
+    // 2do caso: tienen clases distintas
+    guard lhs.dynamicType == rhs.dynamicType else{
+        return false
+    }
+    
+    // Caso genérico
+    return (lhs.proxyForComparison == rhs.proxyForComparison)
+    
 }

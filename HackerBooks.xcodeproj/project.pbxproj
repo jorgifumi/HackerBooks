@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		688CCD4C1C149BB60033F484 /* JSONProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688CCD4B1C149BB60033F484 /* JSONProcessing.swift */; };
+		688CCD4E1C15D53B0033F484 /* KCMultiDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688CCD4D1C15D53A0033F484 /* KCMultiDictionary.swift */; };
+		688CCD501C15ECAE0033F484 /* KCBookTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688CCD4F1C15ECAE0033F484 /* KCBookTag.swift */; };
 		689105071C00AF1E00F8A22F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689105061C00AF1E00F8A22F /* AppDelegate.swift */; };
 		689105091C00AF1E00F8A22F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689105081C00AF1E00F8A22F /* ViewController.swift */; };
 		6891050C1C00AF1E00F8A22F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6891050A1C00AF1E00F8A22F /* Main.storyboard */; };
@@ -30,6 +32,8 @@
 
 /* Begin PBXFileReference section */
 		688CCD4B1C149BB60033F484 /* JSONProcessing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONProcessing.swift; sourceTree = "<group>"; };
+		688CCD4D1C15D53A0033F484 /* KCMultiDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KCMultiDictionary.swift; sourceTree = "<group>"; };
+		688CCD4F1C15ECAE0033F484 /* KCBookTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KCBookTag.swift; sourceTree = "<group>"; };
 		689105031C00AF1E00F8A22F /* HackerBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		689105061C00AF1E00F8A22F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		689105081C00AF1E00F8A22F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +66,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		688CCD511C15ECCA0033F484 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				689105271C00AF9800F8A22F /* KCBook.swift */,
+				689105291C00B23B00F8A22F /* KCLibrary.swift */,
+				688CCD4B1C149BB60033F484 /* JSONProcessing.swift */,
+				688CCD4D1C15D53A0033F484 /* KCMultiDictionary.swift */,
+				688CCD4F1C15ECAE0033F484 /* KCBookTag.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		689104FA1C00AF1E00F8A22F = {
 			isa = PBXGroup;
 			children = (
@@ -86,9 +102,7 @@
 				689105261C00AF6B00F8A22F /* App */,
 				689105061C00AF1E00F8A22F /* AppDelegate.swift */,
 				689105081C00AF1E00F8A22F /* ViewController.swift */,
-				6891050A1C00AF1E00F8A22F /* Main.storyboard */,
 				6891050D1C00AF1E00F8A22F /* Assets.xcassets */,
-				6891050F1C00AF1E00F8A22F /* LaunchScreen.storyboard */,
 				689105121C00AF1E00F8A22F /* Info.plist */,
 			);
 			path = HackerBooks;
@@ -106,11 +120,19 @@
 		689105261C00AF6B00F8A22F /* App */ = {
 			isa = PBXGroup;
 			children = (
-				689105271C00AF9800F8A22F /* KCBook.swift */,
-				689105291C00B23B00F8A22F /* KCLibrary.swift */,
-				688CCD4B1C149BB60033F484 /* JSONProcessing.swift */,
+				68FCFDC81C187352007AB55D /* Storyboards */,
+				688CCD511C15ECCA0033F484 /* Model */,
 			);
 			name = App;
+			sourceTree = "<group>";
+		};
+		68FCFDC81C187352007AB55D /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				6891050A1C00AF1E00F8A22F /* Main.storyboard */,
+				6891050F1C00AF1E00F8A22F /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,8 +239,10 @@
 				689105091C00AF1E00F8A22F /* ViewController.swift in Sources */,
 				6891052A1C00B23B00F8A22F /* KCLibrary.swift in Sources */,
 				689105071C00AF1E00F8A22F /* AppDelegate.swift in Sources */,
+				688CCD501C15ECAE0033F484 /* KCBookTag.swift in Sources */,
 				689105281C00AF9800F8A22F /* KCBook.swift in Sources */,
 				688CCD4C1C149BB60033F484 /* JSONProcessing.swift in Sources */,
+				688CCD4E1C15D53B0033F484 /* KCMultiDictionary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
