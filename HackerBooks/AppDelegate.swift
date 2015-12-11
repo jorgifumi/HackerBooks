@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Arranco la App a manubrio
         
         // Crear la interfaz gráfica (El Storyboard)
-        sb = UIStoryboard(name: "HackerBooks", bundle: nil)
+        sb = UIStoryboard(name: "Main", bundle: nil)
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.rootViewController = sb?.instantiateInitialViewController()

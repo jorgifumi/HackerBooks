@@ -45,7 +45,7 @@ enum JSONProcessingError : ErrorType{
 struct StrictBook{
     let title   : String
     let authors : [String]?
-    let tags    : [String]?
+    let tags    : [KCBookTag]?
     let image   : NSURL
     let pdf     : NSURL
 }
@@ -79,9 +79,67 @@ func decode(book json: JSONDictionary) throws -> StrictBook{
     let authorsArr = authors.characters.split{$0 == ","}.map(String.init)
     let tagsArr = tags.characters.split{$0 == ","}.map(String.init)
     
+    var bookTags = [KCBookTag]()
+    var i = 0
+    for item in tagsArr {
+        bookTags[i] = KCBookTag(withName: item)
+        i++
+    }
+    
     return StrictBook(title: title,
         authors: authorsArr,
-        tags: tagsArr,
+        tags: bookTags,
         image: image,
         pdf: pdf)
 }
+
+func decode(books json: JSONArray) -> [StrictBook]{
+    do{
+        // Recorremos todos los personajes y los vamos guardando en el array
+        return try json.map({try decode(book: $0)})
+        
+    }catch{
+        fatalError("Ahora sí que la has cagado")
+    }
+}
+
+func decodeJSON() -> [StrictBook]{
+    // Preparo el modelo
+    var decoded = [StrictBook]()
+    do{
+        if let url = NSBundle.mainBundle().URLForResource("books_readable.json"),
+            data = NSData(contentsOfURL: url),
+            
+            jsons = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as? JSONArray{
+                decoded = decode(books: jsons)
+        }
+    }catch{
+        fatalError("El modelo se fue al carajo")
+    }
+    return decoded
+}
+
+
+
+//MARK: - Init
+
+extension KCBook{
+    
+    convenience init(strictBook b: StrictBook){
+        self.init(title: b.title,
+            authors: b.authors,
+            tags: b.tags!,
+            imageUrl: b.image,
+            pdfUrl: b.pdf)
+    }
+}
+
+extension KCLibrary{
+    
+    convenience init(strictBooksArray bs: [StrictBook]){
+        let books = bs.map({KCBook(strictBook: $0)})
+        
+        self.init(booksArray: books)
+    }
+}
+

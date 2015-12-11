@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		681D05801C1B310E0060F2CA /* HackerBooksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681D057F1C1B310E0060F2CA /* HackerBooksTableViewController.swift */; };
+		681D05821C1B46850060F2CA /* books_readable.json in Resources */ = {isa = PBXBuildFile; fileRef = 681D05811C1B46850060F2CA /* books_readable.json */; };
+		681D05851C1B4F1A0060F2CA /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681D05841C1B4F1A0060F2CA /* FoundationExtensions.swift */; };
 		688CCD4C1C149BB60033F484 /* JSONProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688CCD4B1C149BB60033F484 /* JSONProcessing.swift */; };
 		688CCD4E1C15D53B0033F484 /* KCMultiDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688CCD4D1C15D53A0033F484 /* KCMultiDictionary.swift */; };
 		688CCD501C15ECAE0033F484 /* KCBookTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688CCD4F1C15ECAE0033F484 /* KCBookTag.swift */; };
@@ -31,6 +34,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		681D057F1C1B310E0060F2CA /* HackerBooksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HackerBooksTableViewController.swift; sourceTree = "<group>"; };
+		681D05811C1B46850060F2CA /* books_readable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = books_readable.json; sourceTree = "<group>"; };
+		681D05841C1B4F1A0060F2CA /* FoundationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundationExtensions.swift; sourceTree = "<group>"; };
 		688CCD4B1C149BB60033F484 /* JSONProcessing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONProcessing.swift; sourceTree = "<group>"; };
 		688CCD4D1C15D53A0033F484 /* KCMultiDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KCMultiDictionary.swift; sourceTree = "<group>"; };
 		688CCD4F1C15ECAE0033F484 /* KCBookTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KCBookTag.swift; sourceTree = "<group>"; };
@@ -66,6 +72,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		681D057E1C1B30F40060F2CA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				681D057F1C1B310E0060F2CA /* HackerBooksTableViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		681D05831C1B4F020060F2CA /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				681D05841C1B4F1A0060F2CA /* FoundationExtensions.swift */,
+			);
+			name = Framework;
+			sourceTree = "<group>";
+		};
 		688CCD511C15ECCA0033F484 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,8 +121,10 @@
 		689105051C00AF1E00F8A22F /* HackerBooks */ = {
 			isa = PBXGroup;
 			children = (
+				681D05831C1B4F020060F2CA /* Framework */,
 				689105261C00AF6B00F8A22F /* App */,
 				689105061C00AF1E00F8A22F /* AppDelegate.swift */,
+				681D05811C1B46850060F2CA /* books_readable.json */,
 				689105081C00AF1E00F8A22F /* ViewController.swift */,
 				6891050D1C00AF1E00F8A22F /* Assets.xcassets */,
 				689105121C00AF1E00F8A22F /* Info.plist */,
@@ -120,6 +144,7 @@
 		689105261C00AF6B00F8A22F /* App */ = {
 			isa = PBXGroup;
 			children = (
+				681D057E1C1B30F40060F2CA /* Controllers */,
 				68FCFDC81C187352007AB55D /* Storyboards */,
 				688CCD511C15ECCA0033F484 /* Model */,
 			);
@@ -216,6 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				681D05821C1B46850060F2CA /* books_readable.json in Resources */,
 				689105111C00AF1E00F8A22F /* LaunchScreen.storyboard in Resources */,
 				6891050E1C00AF1E00F8A22F /* Assets.xcassets in Resources */,
 				6891050C1C00AF1E00F8A22F /* Main.storyboard in Resources */,
@@ -238,11 +264,13 @@
 			files = (
 				689105091C00AF1E00F8A22F /* ViewController.swift in Sources */,
 				6891052A1C00B23B00F8A22F /* KCLibrary.swift in Sources */,
+				681D05801C1B310E0060F2CA /* HackerBooksTableViewController.swift in Sources */,
 				689105071C00AF1E00F8A22F /* AppDelegate.swift in Sources */,
 				688CCD501C15ECAE0033F484 /* KCBookTag.swift in Sources */,
 				689105281C00AF9800F8A22F /* KCBook.swift in Sources */,
 				688CCD4C1C149BB60033F484 /* JSONProcessing.swift in Sources */,
 				688CCD4E1C15D53B0033F484 /* KCMultiDictionary.swift in Sources */,
+				681D05851C1B4F1A0060F2CA /* FoundationExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

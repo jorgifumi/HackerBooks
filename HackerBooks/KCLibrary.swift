@@ -37,6 +37,18 @@ class KCLibrary {
             library = lib
     }
     
+    init(booksArray: [KCBook]){
+        var lib = KCMultiDictionary<KCBookTag,KCBook>()
+        
+        for item in booksArray{
+            for itemtag in item.tags!{
+                lib.addObject(item, forKey: itemtag)
+
+            }
+        }
+        library = lib
+    }
+    
     //Número de libros de una temática concreta, si no existe devuelve 0
     func bookCountForTag (tag: KCBookTag?) -> Int{
         if let tagV = tag {

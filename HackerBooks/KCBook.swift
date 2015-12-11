@@ -13,12 +13,12 @@ class KCBook : Equatable, Hashable {
     //MARK - Properties
     let title       : String
     let authors     : [String]?
-    let tags        : [KCBookTag]
+    let tags        : [KCBookTag]?
     let image       : NSURL
     let pdf         : NSURL
     var isFavorite  : Bool{
         get{
-            return tags.contains(KCBookTag.favoriteBookTag())
+            return tags!.contains(KCBookTag.favoriteBookTag())
         }
     }
     
