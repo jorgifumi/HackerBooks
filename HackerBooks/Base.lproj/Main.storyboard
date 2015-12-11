@@ -136,7 +136,7 @@
         <!--Split View Controller-->
         <scene sceneID="ajc-yE-ce1">
             <objects>
-                <splitViewController id="d48-f0-csi" sceneMemberID="viewController">
+                <splitViewController storyboardIdentifier="HackerBooks" id="d48-f0-csi" sceneMemberID="viewController">
                     <connections>
                         <segue destination="QBK-rw-58M" kind="relationship" relationship="masterViewController" id="RcM-IL-6G8"/>
                         <segue destination="mB8-WK-y38" kind="relationship" relationship="detailViewController" id="MyW-vH-WlY"/>

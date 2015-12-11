@@ -60,7 +60,7 @@ class KCLibrary {
     }
     
     //Array de los libros que hay en una temática. Un libro puede pertenecer a varias temáticas. Si no hay libros para una temática, devuelve nil
-    func booksForTag (tag: KCBookTag?) -> Set<KCBook>?{
+    func booksForTag (tag: KCBookTag?) -> [KCBook]?{
         
         guard let tagValue = tag else{
             return nil
@@ -69,16 +69,23 @@ class KCLibrary {
         if bookCountForTag(tagValue) == 0 {
             return nil
         }
-        
-//        var books4Tag : [KCBook] = []
-        
-//        for i in 0..<self.bookCountForTag(tagValue) {
-//            if self.books[i].tags.contains(tagValue) {
-//                books4Tag.append(self.books[i])
-//            }
-//        }
-        return library.objectsForKey(tagValue)
+
+        return library.objectsForKey(tagValue).sort({$0.title < $1.title})
     }
+    
+    //Set de los libros que hay en una temática. Un libro puede pertenecer a varias temáticas. Si no hay libros para una temática, devuelve nil
+//    func booksForTag (tag: KCBookTag?) -> Set<KCBook>?{
+//        
+//        guard let tagValue = tag else{
+//            return nil
+//        }
+//        
+//        if bookCountForTag(tagValue) == 0 {
+//            return nil
+//        }
+//        
+//        return library.objectsForKey(tagValue)
+//    }
     
     //Un KCBook para el libro que está en la posición "index" de aquellos bajo un cierto tag. Si el índice o el tag no existe, devuelve nil
     

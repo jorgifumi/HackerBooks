@@ -12,6 +12,9 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    var model : KCLibrary?
+    var sb : UIStoryboard?
 
     //Detectar si es la primera vez que arrancamos o no. Si es la primera vez descargar el JSON y si no cargarlo de la SandBox
     
@@ -21,6 +24,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Arranco la App a manubrio
+        
+        // Crear la interfaz gráfica (El Storyboard)
+        sb = UIStoryboard(name: "HackerBooks", bundle: nil)
+        
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        window?.rootViewController = sb?.instantiateInitialViewController()
+        window?.makeKeyAndVisible()
+        
         return true
     }
 
