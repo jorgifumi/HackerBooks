@@ -115,11 +115,14 @@
                             <rect key="frame" x="180" y="7" width="240" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
-                                <segment title="First"/>
-                                <segment title="Second"/>
+                                <segment title="Título"/>
+                                <segment title="Tags"/>
                             </segments>
                         </segmentedControl>
                     </navigationItem>
+                    <connections>
+                        <outlet property="sortType" destination="Jha-h7-Wkm" id="hT3-4R-cmO"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RUH-Ha-Mpb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

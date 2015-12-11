@@ -80,10 +80,12 @@ func decode(book json: JSONDictionary) throws -> StrictBook{
     let tagsArr = tags.characters.split{$0 == ","}.map(String.init)
     
     var bookTags = [KCBookTag]()
-    var i = 0
+
     for item in tagsArr {
-        bookTags[i] = KCBookTag(withName: item)
-        i++
+        if !bookTags.contains(KCBookTag(withName: item)){
+            bookTags.append(KCBookTag(withName: item))
+        }
+        
     }
     
     return StrictBook(title: title,

@@ -12,6 +12,7 @@ class HackerBooksTableViewController: UITableViewController {
     
     let model : KCLibrary? = KCLibrary(strictBooksArray: decodeJSON())
     
+    @IBOutlet weak var sortType: UISegmentedControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
