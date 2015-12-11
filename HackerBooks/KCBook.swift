@@ -22,6 +22,12 @@ class KCBook : Equatable, Hashable {
         }
     }
     
+    //MARK: - Hashable
+    
+    var hashValue: Int {
+        return title.hashValue
+    }
+    
     //Mark - Init
     init(title: String,
         authors: [String]?,
