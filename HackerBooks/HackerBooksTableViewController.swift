@@ -14,6 +14,10 @@ class HackerBooksTableViewController: UITableViewController {
     
     @IBOutlet weak var sortType: UISegmentedControl!
     
+    @IBAction func switchSort() {
+        self.tableView.reloadData()
+    }
+    
     var sortByTitle : Bool{
         get{
             return sortType.selectedSegmentIndex == 0
@@ -72,7 +76,7 @@ class HackerBooksTableViewController: UITableViewController {
         if sortType.selectedSegmentIndex == 0 {
             book = model?.books[indexPath.row]
         }else{
-            book = model?.bookAtIndex(indexPath.item, tag: KCBookTag(withName: (model?.tags[indexPath.section].tagName)!))//booksForTag(KCBookTag(withName: (model?.tags[indexPath.section].tagName)!))![indexPath.item] //bookAtIndex(indexPath.row, tag: !))
+            book = model?.bookAtIndex(indexPath.item, tag: KCBookTag(withName: (model?.tags[indexPath.section].tagName)!))
         }
   
         cell.textLabel?.text = book?.title

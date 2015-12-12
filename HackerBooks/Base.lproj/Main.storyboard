@@ -60,10 +60,10 @@
             </objects>
             <point key="canvasLocation" x="1312" y="885"/>
         </scene>
-        <!--View Controller-->
+        <!--Hacker Books Detail View Controller-->
         <scene sceneID="3vS-uL-1xl">
             <objects>
-                <viewController id="dvD-pz-jod" sceneMemberID="viewController">
+                <viewController id="dvD-pz-jod" customClass="HackerBooksDetailViewController" customModule="HackerBooks" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ID8-FY-vhv"/>
                         <viewControllerLayoutGuide type="bottom" id="drU-Br-XPk"/>
@@ -110,6 +110,9 @@
                                 <segment title="Título"/>
                                 <segment title="Tags"/>
                             </segments>
+                            <connections>
+                                <action selector="switchSort" destination="tNz-c8-MSU" eventType="valueChanged" id="YII-DX-4du"/>
+                            </connections>
                         </segmentedControl>
                     </navigationItem>
                     <connections>
