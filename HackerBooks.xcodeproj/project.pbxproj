@@ -21,6 +21,7 @@
 		6891051C1C00AF1E00F8A22F /* HackerBooksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6891051B1C00AF1E00F8A22F /* HackerBooksTests.swift */; };
 		689105281C00AF9800F8A22F /* KCBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689105271C00AF9800F8A22F /* KCBook.swift */; };
 		6891052A1C00B23B00F8A22F /* KCLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689105291C00B23B00F8A22F /* KCLibrary.swift */; };
+		68C87D761C1C80DA001D1F98 /* HackerBooksDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C87D751C1C80D9001D1F98 /* HackerBooksDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		6891051D1C00AF1E00F8A22F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		689105271C00AF9800F8A22F /* KCBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KCBook.swift; sourceTree = "<group>"; };
 		689105291C00B23B00F8A22F /* KCLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KCLibrary.swift; sourceTree = "<group>"; };
+		68C87D751C1C80D9001D1F98 /* HackerBooksDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HackerBooksDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				681D057F1C1B310E0060F2CA /* HackerBooksTableViewController.swift */,
+				68C87D751C1C80D9001D1F98 /* HackerBooksDetailViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				689105071C00AF1E00F8A22F /* AppDelegate.swift in Sources */,
 				688CCD501C15ECAE0033F484 /* KCBookTag.swift in Sources */,
 				689105281C00AF9800F8A22F /* KCBook.swift in Sources */,
+				68C87D761C1C80DA001D1F98 /* HackerBooksDetailViewController.swift in Sources */,
 				688CCD4C1C149BB60033F484 /* JSONProcessing.swift in Sources */,
 				688CCD4E1C15D53B0033F484 /* KCMultiDictionary.swift in Sources */,
 				681D05851C1B4F1A0060F2CA /* FoundationExtensions.swift in Sources */,

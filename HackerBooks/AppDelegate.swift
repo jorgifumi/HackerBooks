@@ -9,11 +9,11 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
     
-    var model : KCLibrary?
+    //var model : KCLibrary?
     var sb : UIStoryboard?
 
     //Detectar si es la primera vez que arrancamos o no. Si es la primera vez descargar el JSON y si no cargarlo de la SandBox
@@ -29,6 +29,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Crear la interfaz gráfica (El Storyboard)
         sb = UIStoryboard(name: "Main", bundle: nil)
+        
+        
+//        
+//        let splitViewController = self.window!.rootViewController as! UISplitViewController
+//        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
+//        navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
+//        splitViewController.delegate = self
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.rootViewController = sb?.instantiateInitialViewController()
@@ -57,6 +64,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+
+    // MARK: - Split view
+    
+    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController:UIViewController, ontoPrimaryViewController primaryViewController:UIViewController) -> Bool {
+        guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
+        guard let topAsDetailController = secondaryAsNavController.topViewController as? HackerBooksDetailViewController else { return false }
+        if topAsDetailController.detailItem == nil {
+            // Return true to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
+            return true
+        }
+        return false
     }
 
 

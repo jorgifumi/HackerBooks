@@ -13,10 +13,17 @@ class HackerBooksTableViewController: UITableViewController {
     let model : KCLibrary? = KCLibrary(strictBooksArray: decodeJSON())
     
     @IBOutlet weak var sortType: UISegmentedControl!
-
+    
+    var sortByTitle : Bool{
+        get{
+            return sortType.selectedSegmentIndex == 0
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        sortType.selectedSegmentIndex = 1
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -33,38 +40,46 @@ class HackerBooksTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        print("\(model)")
-        return 1
+        if sortByTitle {
+            return 1
+        }else{
+            return model?.tagsCount ?? 0
+        }
+        
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return model?.booksCount ?? 0
+        if sortByTitle {
+            return model?.booksCount ?? 0
+        }else{
+            return (model?.bookCountForTag(KCBookTag(withName: (model?.tags[section].tagName)!)))!
+        }
     }
 
-    /*
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if sortByTitle{
+            return nil
+        }else{
+            return model?.tags[section].tagName
+        }
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("KCBookCell", forIndexPath: indexPath)
-
-        let book = model?.bookAtIndex(indexPath.item, tag: KCBookTag(withName: indexPath))
+        let book : KCBook?
         
-        // Configure the cell...
-        if let alias = character?.alias {
-            cell.textLabel?.text = alias
-            cell.detailTextLabel?.text = character?.name
-            
-            
+        if sortType.selectedSegmentIndex == 0 {
+            book = model?.books[indexPath.row]
         }else{
-            cell.textLabel?.text = character?.name
+            book = model?.bookAtIndex(indexPath.item, tag: KCBookTag(withName: (model?.tags[indexPath.section].tagName)!))//booksForTag(KCBookTag(withName: (model?.tags[indexPath.section].tagName)!))![indexPath.item] //bookAtIndex(indexPath.row, tag: !))
         }
-        
-        cell.imageView?.image = character?.photo
-        
-        return cell
-
+  
+        cell.textLabel?.text = book?.title
+        //cell.imageView?.image = UIImage(contentsOfFile: book?.image)
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -110,5 +125,7 @@ class HackerBooksTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
 
 }

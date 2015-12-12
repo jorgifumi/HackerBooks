@@ -76,16 +76,15 @@ func decode(book json: JSONDictionary) throws -> StrictBook{
             throw JSONProcessingError.ResourcePointedByURLNotReachable
     }
 
-    let authorsArr = authors.characters.split{$0 == ","}.map(String.init)
-    let tagsArr = tags.characters.split{$0 == ","}.map(String.init)
+    let authorsArr = authors.componentsSeparatedByString(", ")//chracters.split{$0 == ","}.map(String.init)
+    let tagsArr = tags.componentsSeparatedByString(", ")//characters.split{$0 == ","}.map(String.init)
     
     var bookTags = [KCBookTag]()
 
     for item in tagsArr {
         if !bookTags.contains(KCBookTag(withName: item)){
-            bookTags.append(KCBookTag(withName: item))
+            bookTags.append(KCBookTag(withName: item.capitalizedString))
         }
-        
     }
     
     return StrictBook(title: title,

@@ -29,11 +29,16 @@ public struct KCMultiDictionary<KeyType: Hashable, ValueType: Hashable> {
     
     
     public func objectsForKey(key: KeyType) -> Set<ValueType> {
-//        if let objs = dict[key] {
-//            return objs
-//        }
-//        return []
+
         return dict[key] ?? []
+    }
+    
+    public func allObjects() -> Set<ValueType> {
+        var total = Set<ValueType>()
+        for (_, value) in dict{
+            total = total.union(value)
+        }
+        return total
     }
     
     public mutating func removeObject(object: ValueType, forKey key: KeyType) {
@@ -50,46 +55,21 @@ public struct KCMultiDictionary<KeyType: Hashable, ValueType: Hashable> {
     
     public var count : Int{
         get{
-            let total = Set<ValueType>()
-            for bucket in dict.values {
-                total.union(bucket)
-            }
-            return total.count
+            
+            return allObjects().count
         }
     }
     
-    public var allKeys : LazyMapCollection<Dictionary<KeyType, Set<ValueType>>, KeyType>{
+    public var allKeys : [KeyType]{
         get{
-//            var keys = [KeyType]()
-//            for each in 0...dict.count {
-//                keys[each] = each.hashValue
-//            }
-            return dict.keys
+            var keys = [KeyType]()
+            
+            for (key, _) in dict{
+                keys.append(key)
+            }
+            return keys
         }
     }
-    
-//    public subscript(key: KeyType) -> Set<ValueType> {
-//        return objectsForKey(key)
-//    }
-    
-//    subscript(key: KeyType) -> ValueType? {
-//       
-//        get {
-//           
-//            return self.dict[key]
-//        }
-//     
-//        set {
-//         
-//            if let index = find(self.array, key) {
-//            } else {
-//                self.array.append(key)
-//            }
-//            
-//            // 5
-//            self.dict[key] = newValue
-//        }
-//    }
 }
 
 

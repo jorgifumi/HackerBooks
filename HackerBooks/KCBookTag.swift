@@ -52,7 +52,7 @@ class KCBookTag : Equatable, Comparable, Hashable {
     var proxyForSorting : String{
         
         get{
-            return "\(isFavorite)A\(tagName)"
+            return "\(tagName)"
         }
     }
 }
@@ -77,7 +77,13 @@ func ==(lhs: KCBookTag, rhs: KCBookTag) -> Bool{
 }
 
 func <(lhs: KCBookTag, rhs: KCBookTag) -> Bool {
-    
+    // Favorite wins ever
+    if lhs.isFavorite {
+        return true
+    }
+    if rhs.isFavorite {
+        return false
+    }
     return (lhs.proxyForSorting < rhs.proxyForSorting)
 }
 
