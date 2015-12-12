@@ -66,7 +66,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="82x-gc-EsQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1312" y="885"/>
+            <point key="canvasLocation" x="2132" y="900"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="T64-fa-KaR">
+            <objects>
+                <navigationController id="xe2-11-ydf" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="X95-Nh-pCP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="mB8-WK-y38" kind="show" id="aJ7-Ok-LW0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RuO-lZ-CtA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1312" y="900"/>
         </scene>
         <!--Hacker Books Detail View Controller-->
         <scene sceneID="3vS-uL-1xl">
@@ -90,7 +106,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LSu-UV-OR9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2132" y="885"/>
+            <point key="canvasLocation" x="2952" y="900"/>
         </scene>
         <!--Hacker Books Table View Controller-->
         <scene sceneID="8r5-7O-K6X">
@@ -159,7 +175,7 @@
                 <splitViewController storyboardIdentifier="HackerBooks" id="d48-f0-csi" sceneMemberID="viewController">
                     <connections>
                         <segue destination="QBK-rw-58M" kind="relationship" relationship="masterViewController" id="RcM-IL-6G8"/>
-                        <segue destination="mB8-WK-y38" kind="relationship" relationship="detailViewController" id="MyW-vH-WlY"/>
+                        <segue destination="xe2-11-ydf" kind="relationship" relationship="detailViewController" id="Z6u-Ld-vVG"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="upT-HA-PUD" userLabel="First Responder" sceneMemberID="firstResponder"/>
