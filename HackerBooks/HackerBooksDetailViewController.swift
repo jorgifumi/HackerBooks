@@ -12,6 +12,14 @@ class HackerBooksDetailViewController: UIViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
     
+    @IBOutlet weak var photo: UIImageView!
+    @IBOutlet weak var authors: UILabel!
+    @IBOutlet weak var tags: UILabel!
+    @IBAction func favSwitch(sender: AnyObject) {
+    }
+    
+    //let model : KCBook?
+    
     
     var detailItem: AnyObject? {
         didSet {

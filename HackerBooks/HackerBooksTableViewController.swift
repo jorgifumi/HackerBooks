@@ -27,7 +27,6 @@ class HackerBooksTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        sortType.selectedSegmentIndex = 1
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

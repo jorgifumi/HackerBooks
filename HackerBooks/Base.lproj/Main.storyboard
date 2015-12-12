@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Hacker Books Detail View Controller-->
         <scene sceneID="VIf-Gp-dEF">
             <objects>
-                <viewController id="mB8-WK-y38" sceneMemberID="viewController">
+                <viewController id="mB8-WK-y38" customClass="HackerBooksDetailViewController" customModule="HackerBooks" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tFR-Fp-f4e"/>
                         <viewControllerLayoutGuide type="bottom" id="aHt-20-RP7"/>
@@ -34,6 +34,9 @@
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pd4-0L-0wR">
                                 <rect key="frame" x="323" y="141" width="51" height="31"/>
+                                <connections>
+                                    <action selector="favSwitch:" destination="mB8-WK-y38" eventType="valueChanged" id="t1W-1F-bmU"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Favorite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLk-eD-p0c">
                                 <rect key="frame" x="377" y="146" width="61" height="21"/>
@@ -55,6 +58,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="authors" destination="7du-yv-3m2" id="aU9-Kd-j3D"/>
+                        <outlet property="photo" destination="MNZ-Oj-Mmb" id="oJr-ln-atC"/>
+                        <outlet property="tags" destination="0EZ-I9-y8F" id="dMV-Tj-MGG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="82x-gc-EsQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -71,6 +79,12 @@
                     <view key="view" contentMode="scaleToFill" id="zsi-jG-2L8">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c0o-3d-yjM">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
@@ -107,7 +121,7 @@
                             <rect key="frame" x="180" y="7" width="240" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
-                                <segment title="Título"/>
+                                <segment title="Title"/>
                                 <segment title="Tags"/>
                             </segments>
                             <connections>
