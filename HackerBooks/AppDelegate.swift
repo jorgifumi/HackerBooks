@@ -13,9 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     var window: UIWindow?
     
-    //var model : KCLibrary?
-    //var sb : UIStoryboard?
-
     //Detectar si es la primera vez que arrancamos o no. Si es la primera vez descargar el JSON y si no cargarlo de la SandBox
     
     //Una vez localizados los datos, crear el modelo
@@ -25,20 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        let splitVC = self.window!.rootViewController as! UISplitViewController
-        let leftNC = splitVC.viewControllers.first as! UINavigationController
-        let rightNC = splitVC.viewControllers.last as! UINavigationController
-        let masterVC = leftNC.topViewController as! HackerBooksTableViewController
-        let detailVC = rightNC.topViewController as! HackerBooksDetailViewController
-        
-        
-        // Delegates
-        splitVC.delegate = self
-        //rightNC.delegate = masterVC
-        masterVC.delegate = detailVC
-        
-        // Buttons
-        rightNC.topViewController!.navigationItem.leftBarButtonItem = splitVC.displayModeButtonItem()
+        let splitViewController = self.window!.rootViewController as! UISplitViewController
+        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
+        navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
+        splitViewController.delegate = self
+
         
         return true
     }

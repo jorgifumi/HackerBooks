@@ -10,7 +10,8 @@ import UIKit
 
 class HackerBooksTableViewController: UITableViewController {
     
-//    var detailViewController: HackerBooksDetailViewController? = nil
+    var detailViewController: HackerBooksDetailViewController? = nil
+    //var objects = [AnyObject]()
     
     let model : KCLibrary? = KCLibrary(strictBooksArray: decodeJSON())
     
@@ -38,18 +39,40 @@ class HackerBooksTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-//        if let split = self.splitViewController {
-//            let controllers = split.viewControllers
-//            self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? HackerBooksDetailViewController
-//        }
+        if let split = self.splitViewController {
+            let controllers = split.viewControllers
+            self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? HackerBooksDetailViewController
+        }
 
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
+        super.viewWillAppear(animated)
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+    
+    // MARK: - Segues
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showDetail" {
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                //let object = objects[indexPath.row] as! NSDate
+                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! HackerBooksDetailViewController
+                controller.detailItem = false
+                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+                controller.navigationItem.leftItemsSupplementBackButton = true
+            }
+        }
+    }
+    
+    
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -93,31 +116,33 @@ class HackerBooksTableViewController: UITableViewController {
         //cell.imageView?.image = UIImage(contentsOfFile: book?.image)
         return cell
     }
+
+
     
     // MARK: - Delegate
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        let book : KCBook?
-        
-        if sortByTitle {
-            book = model?.books[indexPath.row]
-        }else{
-            book = model?.bookAtIndex(indexPath.item, tag: KCBookTag(withName: (model?.tags[indexPath.section].tagName)!))
-        }
-        
-        //let detailVC = HackerBooksDetailViewController.init(withModel: book!)
-  
-        //self.navigationController!.pushViewController(detailVC, animated: true)
-        delegate?.hackerBooksTableViewController(self, didSelectedBook: book!)
-        
-        //Notification
-        let notification = NSNotification(name: "newBook", object: book!)
-        
-        NSNotificationCenter.defaultCenter().postNotification(notification)
-        
-        
-    }
+//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        
+//        let book : KCBook?
+//        
+//        if sortByTitle {
+//            book = model?.books[indexPath.row]
+//        }else{
+//            book = model?.bookAtIndex(indexPath.item, tag: KCBookTag(withName: (model?.tags[indexPath.section].tagName)!))
+//        }
+//        
+//        //let detailVC = HackerBooksDetailViewController.init(withModel: book!)
+//  
+//        //self.navigationController!.pushViewController(detailVC, animated: true)
+//        delegate?.hackerBooksTableViewController(self, didSelectedBook: book!)
+//        
+//        //Notification
+//        let notification = NSNotification(name: "newBook", object: book!)
+//        
+//        NSNotificationCenter.defaultCenter().postNotification(notification)
+//        
+//        
+//    }
     
 
     /*

@@ -50,7 +50,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="kpx-aS-7dB"/>
                                     <barButtonItem title="Read" id="F4r-4h-15T">
                                         <connections>
-                                            <segue destination="dvD-pz-jod" kind="show" id="P8I-CC-lvc"/>
+                                            <segue destination="dvD-pz-jod" kind="show" id="Lcr-gs-pUk"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -85,10 +85,10 @@
             </objects>
             <point key="canvasLocation" x="1312" y="900"/>
         </scene>
-        <!--Hacker Books Detail View Controller-->
+        <!--View Controller-->
         <scene sceneID="3vS-uL-1xl">
             <objects>
-                <viewController id="dvD-pz-jod" customClass="HackerBooksDetailViewController" customModule="HackerBooks" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dvD-pz-jod" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ID8-FY-vhv"/>
                         <viewControllerLayoutGuide type="bottom" id="drU-Br-XPk"/>
@@ -98,7 +98,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c0o-3d-yjM">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                             </webView>
                         </subviews>
@@ -126,7 +126,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="xe2-11-ydf" kind="show" id="A3y-kx-eOP"/>
+                                    <segue destination="xe2-11-ydf" kind="show" identifier="showDetail" id="A3y-kx-eOP"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -188,6 +188,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="A3y-kx-eOP"/>
+        <segue reference="Z6u-Ld-vVG"/>
     </inferredMetricsTieBreakers>
 </document>

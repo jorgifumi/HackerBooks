@@ -62,9 +62,10 @@ class HackerBooksDetailViewController: UIViewController, UINavigationControllerD
         if let detail = self.detailItem {
             if let label = self.detailDescriptionLabel {
                 label.text = detail.description
-                print("hola")
+                
                 
             }
+            print("hola")
         }
     }
     
