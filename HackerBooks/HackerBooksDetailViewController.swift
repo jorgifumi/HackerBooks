@@ -8,17 +8,25 @@
 
 import UIKit
 
-class HackerBooksDetailViewController: UIViewController {
+class HackerBooksDetailViewController: UIViewController, UINavigationControllerDelegate, HackerBooksTableViewControllerDelegate {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
+
     
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var authors: UILabel!
     @IBOutlet weak var tags: UILabel!
     @IBAction func favSwitch(sender: AnyObject) {
+        
+        // Cambia el estado de favorito del libro mostrado
+        if model!.isFavorite {
+            model?.isFavorite = false
+        }else{
+            model?.isFavorite = true
+        }
     }
     
-    //let model : KCBook?
+    var model : KCBook?
     
     
     var detailItem: AnyObject? {
@@ -30,11 +38,19 @@ class HackerBooksDetailViewController: UIViewController {
     
     func configureView() {
         // Update the user interface for the detail item.
-        if let detail = self.detailItem {
-            if let label = self.detailDescriptionLabel {
-                label.text = detail.description
-            }
-        }
+
+        //photo = model?.image
+        authors.text = model?.authors?.joinWithSeparator(", ") ?? " "
+        tags.text = model?.tags?.map({$0.tagName}).joinWithSeparator(", ")
+        
+        // TODO: Cargar estado del interruptor
+        // propiedad = model.isFavorite
+        
+//        if let detail = self.detailItem {
+//            if let label = self.detailDescriptionLabel {
+//                label.text = detail.description
+//            }
+//        }
     }
     
     override func viewDidLoad() {
@@ -58,5 +74,17 @@ class HackerBooksDetailViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK: - Delegate
+    
+    func hackerBooksTableViewController(tableview: HackerBooksTableViewController, didSelectedBook aBook: KCBook){
+        
+        model = aBook
+        self.title = aBook.title
+        self.configureView()
+        
+    }
+
 
 }
+

@@ -16,9 +16,14 @@ class KCBook : Equatable, Hashable {
     let tags        : [KCBookTag]?
     let image       : NSURL
     let pdf         : NSURL
+    
+    //MARK: - Computed Properties
     var isFavorite  : Bool{
         get{
             return tags!.contains(KCBookTag.favoriteBookTag())
+        }
+        set{
+            //self.isFavorite = newValue
         }
     }
     

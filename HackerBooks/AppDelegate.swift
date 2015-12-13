@@ -25,19 +25,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        // Arranco la App a manubrio
+        let splitVC = self.window!.rootViewController as! UISplitViewController
+        let leftNC = splitVC.viewControllers.first as! UINavigationController
+        let rightNC = splitVC.viewControllers.last as! UINavigationController
+        let masterVC = leftNC.topViewController as! HackerBooksTableViewController
+        let detailVC = rightNC.topViewController as! HackerBooksDetailViewController
         
-        // Crear la interfaz gráfica (El Storyboard)
-        //sb = UIStoryboard(name: "Main", bundle: nil)
         
-        let splitViewController = self.window!.rootViewController as! UISplitViewController
-        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
-        navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
-        splitViewController.delegate = self
+        // Delegates
+        splitVC.delegate = self
+        //rightNC.delegate = detailVC
+        masterVC.delegate = detailVC
         
-//        window = UIWindow(frame: UIScreen.mainScreen().bounds)
-//        window?.rootViewController = sb?.instantiateInitialViewController()
-//        window?.makeKeyAndVisible()
+        // Buttons
+        rightNC.topViewController!.navigationItem.leftBarButtonItem = splitVC.displayModeButtonItem()
         
         return true
     }

@@ -10,7 +10,11 @@ import UIKit
 
 class HackerBooksTableViewController: UITableViewController {
     
+//    var detailViewController: HackerBooksDetailViewController? = nil
+    
     let model : KCLibrary? = KCLibrary(strictBooksArray: decodeJSON())
+    
+    var delegate : HackerBooksTableViewControllerDelegate?
     
     @IBOutlet weak var sortType: UISegmentedControl!
     
@@ -26,12 +30,19 @@ class HackerBooksTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // delegate?.hackerBooksTableViewController(self, didSelectedBook: model[0])
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+//        if let split = self.splitViewController {
+//            let controllers = split.viewControllers
+//            self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? HackerBooksDetailViewController
+//        }
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,7 +83,7 @@ class HackerBooksTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("KCBookCell", forIndexPath: indexPath)
         let book : KCBook?
         
-        if sortType.selectedSegmentIndex == 0 {
+        if sortByTitle {
             book = model?.books[indexPath.row]
         }else{
             book = model?.bookAtIndex(indexPath.item, tag: KCBookTag(withName: (model?.tags[indexPath.section].tagName)!))
@@ -81,6 +92,29 @@ class HackerBooksTableViewController: UITableViewController {
         cell.textLabel?.text = book?.title
         //cell.imageView?.image = UIImage(contentsOfFile: book?.image)
         return cell
+    }
+    
+    // MARK: - Delegate
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let book : KCBook?
+        
+        if sortByTitle {
+            book = model?.books[indexPath.row]
+        }else{
+            book = model?.bookAtIndex(indexPath.item, tag: KCBookTag(withName: (model?.tags[indexPath.section].tagName)!))
+        }
+        
+        //self.navigationController?.pushViewController(delegate., animated: true)
+        delegate?.hackerBooksTableViewController(self, didSelectedBook: book!)
+        
+        //Notification
+        let notification = NSNotification(name: "newBook", object: book!)
+        
+        NSNotificationCenter().postNotification(notification)
+        
+        
     }
     
 
@@ -131,4 +165,13 @@ class HackerBooksTableViewController: UITableViewController {
     
     
 
+}
+
+// MARK: - Delegate Protocol
+
+protocol HackerBooksTableViewControllerDelegate{
+    
+    func hackerBooksTableViewController(tableview: HackerBooksTableViewController, didSelectedBook aBook: KCBook)
+    //func hackerBooksTableViewController(tableview:
+    
 }
