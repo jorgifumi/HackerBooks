@@ -58,6 +58,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="cCN-R1-UpN"/>
                     <connections>
                         <outlet property="authors" destination="7du-yv-3m2" id="aU9-Kd-j3D"/>
                         <outlet property="photo" destination="MNZ-Oj-Mmb" id="oJr-ln-atC"/>
@@ -77,7 +78,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="mB8-WK-y38" kind="show" id="aJ7-Ok-LW0"/>
+                        <segue destination="mB8-WK-y38" kind="relationship" relationship="rootViewController" id="9Ql-UP-ks5"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RuO-lZ-CtA" userLabel="First Responder" sceneMemberID="firstResponder"/>

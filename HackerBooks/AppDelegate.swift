@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     var window: UIWindow?
     
     //var model : KCLibrary?
-    var sb : UIStoryboard?
+    //var sb : UIStoryboard?
 
     //Detectar si es la primera vez que arrancamos o no. Si es la primera vez descargar el JSON y si no cargarlo de la SandBox
     
@@ -28,18 +28,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         // Arranco la App a manubrio
         
         // Crear la interfaz gráfica (El Storyboard)
-        sb = UIStoryboard(name: "Main", bundle: nil)
+        //sb = UIStoryboard(name: "Main", bundle: nil)
         
+        let splitViewController = self.window!.rootViewController as! UISplitViewController
+        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
+        navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
+        splitViewController.delegate = self
         
-//        
-//        let splitViewController = self.window!.rootViewController as! UISplitViewController
-//        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
-//        navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
-//        splitViewController.delegate = self
-        
-        window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        window?.rootViewController = sb?.instantiateInitialViewController()
-        window?.makeKeyAndVisible()
+//        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+//        window?.rootViewController = sb?.instantiateInitialViewController()
+//        window?.makeKeyAndVisible()
         
         return true
     }
