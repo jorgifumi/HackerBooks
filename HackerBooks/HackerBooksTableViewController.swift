@@ -106,13 +106,15 @@ class HackerBooksTableViewController: UITableViewController {
             book = model?.bookAtIndex(indexPath.item, tag: KCBookTag(withName: (model?.tags[indexPath.section].tagName)!))
         }
         
-        //self.navigationController?.pushViewController(delegate., animated: true)
+        //let detailVC = HackerBooksDetailViewController.init(withModel: book!)
+  
+        //self.navigationController!.pushViewController(detailVC, animated: true)
         delegate?.hackerBooksTableViewController(self, didSelectedBook: book!)
         
         //Notification
         let notification = NSNotification(name: "newBook", object: book!)
         
-        NSNotificationCenter().postNotification(notification)
+        NSNotificationCenter.defaultCenter().postNotification(notification)
         
         
     }

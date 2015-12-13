@@ -125,6 +125,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="xe2-11-ydf" kind="show" id="A3y-kx-eOP"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -184,4 +187,7 @@
             <point key="canvasLocation" x="492" y="555"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="A3y-kx-eOP"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         
         // Delegates
         splitVC.delegate = self
-        //rightNC.delegate = detailVC
+        //rightNC.delegate = masterVC
         masterVC.delegate = detailVC
         
         // Buttons

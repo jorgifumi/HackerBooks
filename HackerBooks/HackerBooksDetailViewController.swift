@@ -35,27 +35,47 @@ class HackerBooksDetailViewController: UIViewController, UINavigationControllerD
             self.configureView()
         }
     }
+
+    convenience init(withModel model: KCBook){
+        self.init(nibName: nil, bundle: nil)
+        self.model = model
+    }
     
     func configureView() {
         // Update the user interface for the detail item.
+        if let title = model?.title,
+            authors = model?.authors,
+            tags = model?.tags,
+            photo = model?.image {
+                self.title = title
+                //self.photo = photo
+                self.authors.text = authors.joinWithSeparator(", ")
+                self.tags.text = tags.map({$0.tagName}).joinWithSeparator(", ")
+                
+                // TODO: Cargar estado del interruptor
+                // propiedad = model.isFavorite
+        }
+        
+        
 
-        //photo = model?.image
-        authors.text = model?.authors?.joinWithSeparator(", ") ?? " "
-        tags.text = model?.tags?.map({$0.tagName}).joinWithSeparator(", ")
         
-        // TODO: Cargar estado del interruptor
-        // propiedad = model.isFavorite
-        
-//        if let detail = self.detailItem {
-//            if let label = self.detailDescriptionLabel {
-//                label.text = detail.description
-//            }
-//        }
+        if let detail = self.detailItem {
+            if let label = self.detailDescriptionLabel {
+                label.text = detail.description
+                print("hola")
+                
+            }
+        }
+    }
+    
+    func bookDidChange(notification : NSNotification){
+        model = notification.object as? KCBook
+        configureView()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "bookDidChange:", name: "newBook", object: nil)
         // Do any additional setup after loading the view.
     }
 
@@ -63,7 +83,10 @@ class HackerBooksDetailViewController: UIViewController, UINavigationControllerD
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
+//    override func viewWillDisappear(animated: Bool) {
+//        NSNotificationCenter.defaultCenter().removeObserver(self)
+//    }
 
     /*
     // MARK: - Navigation
@@ -80,11 +103,15 @@ class HackerBooksDetailViewController: UIViewController, UINavigationControllerD
     func hackerBooksTableViewController(tableview: HackerBooksTableViewController, didSelectedBook aBook: KCBook){
         
         model = aBook
-        self.title = aBook.title
+        
         self.configureView()
         
+    }
+    deinit{
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 
 
 }
+
 
